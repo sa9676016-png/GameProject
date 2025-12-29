@@ -21,4 +21,6 @@ C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\ref\
 C:\Users\User\source\repos\GameProject\GameProject\bin\Debug\net8.0-windows\Assets\forest.png
 C:\Users\User\source\repos\GameProject\GameProject\bin\Debug\net8.0-windows\Assets\forestgoblinrak.png
 C:\Users\User\source\repos\GameProject\GameProject\bin\Debug\net8.0-windows\Assets\psprite.png
+C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameProject.sourcelink.json
 C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameProject.Form2.resources
+C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameFrameWork.GameForm.resources

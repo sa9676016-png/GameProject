@@ -1,8 +1,9 @@
-﻿using System.Drawing;
-using EZInput;
+﻿using EZInput;
 using GameProject.Core;
+using GameProject.Entities;
 using GameProject.Extensions;
 using GameProject.Interfaces;
+using System.Drawing;
 
 namespace GameProject.Entities
 {
@@ -11,7 +12,6 @@ namespace GameProject.Entities
         private Game game;
         public IMovement? Movement { get; set; }
         public int Health { get; set; } = 100;
-        public int Score { get; set; } = 0;
 
         public Player(Game game)
         {
@@ -20,42 +20,22 @@ namespace GameProject.Entities
 
         public override void Update(GameTime gameTime)
         {
-            // Player movement
             Movement?.Move(this, gameTime);
 
-            // Shooting bullets
+            // Space bar se bullet fire
             if (Keyboard.IsKeyPressed(Key.Space))
             {
-                Bullet bullet = new Bullet
-                {
-                    Position = new PointF(Position.X + Size.Width, Position.Y + Size.Height / 2),
-                    Size = new Size(40, 10)
-                };
+                Bullet bullet = new Bullet(this.Position); // Position pass kare
                 game.AddObject(bullet);
             }
 
             base.Update(gameTime);
         }
 
-        public override void Draw(Graphics g)
-        {
-            base.Draw(g);
-        }
-
-        public bool IsAlive = true;
-
         public override void OnCollision(GameObject other)
         {
             if (other is Enemy)
-            {
                 Health -= 10;
-
-                if (Health <= 0)
-                {
-                    IsAlive = false;
-                }
-            }
         }
-
     }
 }

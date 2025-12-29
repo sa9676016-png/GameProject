@@ -1,44 +1,30 @@
-﻿using GameProject.Core;
-using GameProject.Entities;
-using GameProject.Extensions;
+﻿using System.Drawing;
+using GameProject.Core;
 using GameProject.Interfaces;
-using System.Drawing;
 
 namespace GameProject.Entities
 {
-    public class Enemy : GameObject, ICollidable
+    public class Enemy : GameObject
     {
-        public int Health = 50;
-        public IMovement? Movement { get; set; } // movement attach karne ke liye
-        
+        private float speed = 2f;
+        private float left, right;
+
+        public Enemy(PointF pos, Size size, float leftBound, float rightBound)
+        {
+            Position = pos;
+            Size = size;
+            left = leftBound;
+            right = rightBound;
+        }
+
         public override void Update(GameTime gameTime)
         {
-            Movement?.Move(this, gameTime); // move karo agar set hai
+            Position = new PointF(Position.X + speed, Position.Y);
+
+            if (Position.X < left || Position.X + Size.Width > right)
+                speed = -speed;
+
             base.Update(gameTime);
         }
-
-        
-           // if (other is Bullet)
-           // {
-           // Health -= 25;
-
-            //if (Health <= 0)
-            // IsActive = false;
-                   public override void OnCollision(GameObject other)
-        {
-            if (other is Bullet) // agar enemy ko bullet lagi
-            {
-                Health -= 10;          // damage kam karo
-                other.IsActive = false; // bullet remove ho jaye
-
-                if (Health <= 0)
-                {
-                    IsActive = false; // enemy mar gaya
-                }
-            }
-        }
-
     }
 }
-
-
