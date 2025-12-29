@@ -20,6 +20,13 @@ namespace GameFrameWork
             this.speed = speed; // speed ko adjustable rakha
         }
 
+        //public PatrolMovement(float left, float right, float speed = 2f)
+        //{
+        //    leftBound = left;
+        //    rightBound = right;
+        //    this.speed = speed; // speed ko adjustable rakha
+        //}
+
         public void Move(GameObject obj, GameTime gameTime)
         {
             // Horizontal movement

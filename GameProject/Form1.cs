@@ -20,6 +20,7 @@ namespace GameProject
             InitializeComponent();
 
             this.StartPosition = FormStartPosition.Manual;
+            //this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
             this.Size = Screen.PrimaryScreen.Bounds.Size;
 
