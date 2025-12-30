@@ -9,9 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\forest.png" />
     <None Remove="Assets\forestgoblinrak.png" />
     <None Remove="Assets\psprite.png" />
+    <None Remove="Resources\background.png" />
+    <None Remove="Resources\environment.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,10 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Assets\forest.png">
+    <Content Include="Assets\forestgoblinrak.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\forestgoblinrak.png">
+    <Content Include="Resources\background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\environment.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

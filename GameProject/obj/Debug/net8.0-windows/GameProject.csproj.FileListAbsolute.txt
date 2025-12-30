@@ -1,5 +1,4 @@
 C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameProject.csproj.AssemblyReference.cache
-C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameProject.Form1.resources
 C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameProject.csproj.GenerateResource.cache
 C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameProject.Properties.Resources.resources
 C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameProject.GeneratedMSBuildEditorConfig.editorconfig
@@ -23,4 +22,3 @@ C:\Users\User\source\repos\GameProject\GameProject\bin\Debug\net8.0-windows\Asse
 C:\Users\User\source\repos\GameProject\GameProject\bin\Debug\net8.0-windows\Assets\psprite.png
 C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameProject.sourcelink.json
 C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameProject.Form2.resources
-C:\Users\User\source\repos\GameProject\GameProject\obj\Debug\net8.0-windows\GameFrameWork.GameForm.resources

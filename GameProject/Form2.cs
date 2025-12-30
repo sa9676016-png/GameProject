@@ -1,46 +1,57 @@
 ﻿using EZInput;
 using GameFrameWork;
-
 using GameProject.Core;
-using GameProject.Entities;
-using GameProject.Properties;
+using GameProject.Entities;   // ✅ Player fix
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Numerics;
 using System.Windows.Forms;
 
 namespace GameProject
 {
     public partial class Form2 : Form
     {
-        Game game = new Game();
-        Player player = new Player
-        {
-            Position = new PointF(100, 200),
-            Size = new Size(100, 100),
-            Sprite = Image.FromFile("@C:\ Users\ User\Desktop\week4"),
+        Game game;
 
-            Movement = new KeyboardMovement(),
 
-        };
+        Player player;
+
         PhysicsSystem physics = new PhysicsSystem();
         CollisionSystem collisions = new CollisionSystem();
-        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+
+        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer(); // ✅ Timer fix
 
         public Form2()
         {
             InitializeComponent();
             DoubleBuffered = true;
+
+            game = new Game();
+
             Setting();
+
+            timer.Interval = 16;
+            timer.Tick += Timer_Tick;
+            timer.Start();
         }
+
         private void Setting()
         {
-           
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            game.Update(new GameTime());
+            physics.Apply(game.Objects.ToList());
+            collisions.Check(game.Objects.ToList());
+            game.Cleanup();
+            Invalidate();
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            game.Draw(e.Graphics);
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -49,21 +60,3 @@ namespace GameProject
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           

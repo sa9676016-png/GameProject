@@ -1,41 +1,49 @@
-﻿using EZInput;
-using GameProject.Core;
-using GameProject.Entities;
-using GameProject.Extensions;
-using GameProject.Interfaces;
-using System.Drawing;
+﻿    using EZInput;
+    using GameProject.Core;
+    using GameProject.Entities;
+    using GameProject.Extensions;
+    using GameProject.Interfaces;
+    using global::GameProject.Core;
+    using global::GameProject.Interfaces;
+    using System.Drawing;
+    using static System.Net.Mime.MediaTypeNames;
 
-namespace GameProject.Entities
-{
-    public class Player : GameObject
+    namespace GameProject.Entities
     {
-        private Game game;
-        public IMovement? Movement { get; set; }
-        public int Health { get; set; } = 100;
-
-        public Player(Game game)
+        public class Player : GameObject
         {
-            this.game = game;
-        }
+            private Game game;
+            public IMovement? Movement { get; set; }
+            public int Health { get; set; } = 100;
 
-        public override void Update(GameTime gameTime)
-        {
-            Movement?.Move(this, gameTime);
-
-            // Space bar se bullet fire
-            if (Keyboard.IsKeyPressed(Key.Space))
+            public Player(Game game)
             {
-                Bullet bullet = new Bullet(this.Position); // Position pass kare
-                game.AddObject(bullet);
+                this.game = game;
+
+            }
+            public Player()
+            {
+
             }
 
-            base.Update(gameTime);
-        }
+            public override void Update(GameTime gameTime)
+            {
+                Movement?.Move(this, gameTime);
 
-        public override void OnCollision(GameObject other)
-        {
-            if (other is Enemy)
-                Health -= 10;
+                // Space bar se bullet fire
+                if (Keyboard.IsKeyPressed(Key.Space))
+                {
+                    Bullet bullet = new Bullet(this.Position); // Position pass kare
+                    game.AddObject(bullet);
+                }
+
+                base.Update(gameTime);
+            }
+
+            public override void OnCollision(GameObject other)
+            {
+                if (other is Enemy)
+                    Health -= 10;
+            }
         }
     }
-}
